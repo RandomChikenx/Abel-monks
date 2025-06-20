@@ -1,0 +1,40 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Free Abel the Monkey</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    #cage { font-size: 100px; }
+    #abel { font-size: 80px; }
+    #status { font-size: 24px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div id="cage">🦍🔒</div>
+  <div id="abel">Monkey Abel</div>
+  <p id="status">Stay on this page for 3 hours to free Abel.</p>
+  <p>Time spent: <span id="timer">0</span> seconds</p>
+
+  <script>
+    let seconds = 0;
+    const required = 3 * 60 * 60; // 3 hours in seconds
+
+    const timerElem = document.getElementById('timer');
+    const statusElem = document.getElementById('status');
+    const cageElem = document.getElementById('cage');
+
+    const interval = setInterval(() => {
+      seconds++;
+      timerElem.textContent = seconds;
+
+      if (seconds >= required) {
+        clearInterval(interval);
+        cageElem.textContent = '🦍🔓'; // unlocked cage emoji
+        statusElem.textContent = 'Congratulations! You freed Abel the monkey!';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+```
